@@ -1,0 +1,30 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/movie/movie",
+          "pathName": "pages/movie/movie",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/music/music",
+          "pathName": "pages/music/music",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

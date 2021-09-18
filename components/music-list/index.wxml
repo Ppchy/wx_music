@@ -1,0 +1,4 @@
+<!--components/music-list/music-list.wxml-->
+<view>
+  <music></music>
+</view>
