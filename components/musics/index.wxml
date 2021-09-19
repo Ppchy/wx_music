@@ -1,9 +1,4 @@
-<view class="text-container">
-  <text>新歌首发</text>
-  <text>更多 ></text>
-</view>
-<view class="music-container">
-  <image></image>
-  <text>青峰</text>
-  <text>SING女团</text>
+<view class="container">
+    <image class="cover" src="{{music.picUrl?music.picUrl:music.coverImgUrl}}"></image>
+    <text class="name">{{music.name}}</text>
 </view>

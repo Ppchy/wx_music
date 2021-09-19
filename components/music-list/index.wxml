@@ -1,4 +1,14 @@
 <!--components/music-list/music-list.wxml-->
-<view>
-  <music></music>
+<view class="container">
+  <view class="text-container">
+    <text class="newMusic">{{title}}</text>
+    <text class="more">更多 ></text>
+  </view>
+  <view class="music-container">
+    <block wx:for="{{musics}}" wx:key="index">
+    <music data-id="{{item.id}}" music="{{item}}" bind:tap="goToDetail"></music>
+    </block>
+  </view>
+  
+  
 </view>

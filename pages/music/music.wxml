@@ -1,5 +1,7 @@
 <!--pages/music/music.wxml-->
 <view>
+  <music-list musics="{{asanData}}"title="Asan的歌"></music-list>
+  <music-list musics="{{musicData}}" title="热门歌单"></music-list>
   <music-list></music-list>
 </view>
 

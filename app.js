@@ -14,6 +14,14 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    userId: 0,
+    waitForPlaying: [],//等待播放歌单
+    history_songId: [],//历史歌单
+    songName: '',//歌名
+    musicId: -1,//音乐id
+    backgroundAudioManager: {},
+    login_token: '',
+    navId: 2
   }
 })

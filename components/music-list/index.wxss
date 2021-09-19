@@ -1,1 +1,29 @@
 /* components/music-list/music-list.wxss */
+.container{
+  display: flex;
+  flex-direction: column;
+  padding:20rpx 24rpx;
+}
+/*标题栏*/
+.text-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom:30rpx;
+}
+.newMusic{
+  font-size: 34rpx;
+  color:#111
+}
+.more{
+  color:#AAAAAA;
+  font-size:26rpx;
+  font-weight: 400;
+}
+/*音乐栏*/
+.music-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

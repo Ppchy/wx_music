@@ -23,6 +23,18 @@
           "pathName": "pages/music/music",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/music-detail/music-detail",
+          "pathName": "pages/music-detail/music-detail",
+          "query": "",
+          "scene": null
         }
       ]
     }

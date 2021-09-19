@@ -1,0 +1,37 @@
+<!--pages/music-detail/music-detail.wxml-->
+<view class="wrapper">
+	<view class="main">
+		<view class="mine">
+			<image class="mine-pic" src="{{playlist.coverImgUrl}}" />
+			<text class="mine-name">{{playlist.name}}</text>
+		</view>
+	</view>
+	<view class="des">
+		<view class="my">
+			<text class="my-name">播放全部</text>
+		</view>
+		<scroll-view class="scroll" scroll-x>
+			<block wx:for="{{playlist.tracks}}" wx:key="index">
+				<view
+				 class="scroll-box"
+				 bindtap="gotoSongList"
+				 data-id="{{item.id}}"
+				>
+
+					<!-- <view>
+						<text class="scroll-box-top">{{item.mark}}</text>
+					</view> -->
+
+					<!-- <image class="scroll-box-pic" src="{{item.pict}}" /> -->
+
+					<view class="scroll-box-mid">
+						<text >{{item.name}}</text>
+					</view>
+					
+					
+
+				</view>
+			</block>
+		</scroll-view>
+	</view>
+</view>

@@ -1,18 +1,37 @@
 // pages/music/music.js
+const $api = require('../../utils/api.js').API;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    musicData:[],
+    asanData:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let data = {type:7}
+    $api.getNewMusic(data).then((res)=>{
+      let recommend = res.data.result;
+      //取前6个
+      this.setData({
+        musicData:recommend.slice(0,6)
+      })
+    })
+    let like = {uid:1389758093}
+    //获取喜欢的歌单
+    $api.getLikeMusic(like).then((res)=>{
+      console.log(res)
+      let like = res.data.playlist;
+      //取前6个
+      this.setData({
+        asanData:like.slice(0,6)
+      })
+    })
   },
 
   /**
