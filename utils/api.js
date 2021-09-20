@@ -3,7 +3,7 @@ const app = getApp();
 const GET = 'GET';
 const POST = 'POST';
 // 定义全局常量baseUrl用来存储前缀
-const baseURL = 'http://localhost:3000';
+const baseURL = 'http://networkmusic.com:3000';
 
 function request(method, url, data) {
   return new Promise(function (resolve, reject) {
@@ -43,7 +43,9 @@ const API = {
   //获取歌曲详情
   getDetail:(data)=>request(GET,'/playlist/detail',data),
   //登录
-  getLogin:(data)=>request(GET,'/login/cellphone',data)
+  getLogin:(data)=>request(GET,'/login/cellphone',data),
+  //获取验证码登录
+  getVerify:(data)=>request(GET,'/captcha/sent',data)
 };
 module.exports = {
   API: API

@@ -1,5 +1,6 @@
 // pages/music/music.js
 const $api = require('../../utils/api.js').API;
+console.log($api)
 Page({
 
   /**
@@ -14,8 +15,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(111)
     let data = {type:7}
     $api.getNewMusic(data).then((res)=>{
+      console.log(res)
       let recommend = res.data.result;
       //取前6个
       this.setData({

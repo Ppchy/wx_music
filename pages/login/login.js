@@ -8,7 +8,10 @@ Page({
    */
   data: {
     phone:"",
-    verify:""
+    verify:"",
+    countdown:60,
+    canClick:false,
+    btnValue:"发送验证码"
   },
 
   /**
@@ -19,14 +22,17 @@ Page({
   },
   verification(){
     let login_token = wx.getStorageSync("login_token")
-    // if (login_token == '') {
-    //   this.tips('未登录,请登陆后尝试！', '去登陆', true, '/pages/login/login')
-    // } else {
-    //   // 从全局中取数据
-    //   wx.navigateTo({
-    //     url: '/pages/music/music',
-    //   })
-    // }
+    if (login_token == '') {
+      // wx.navigateTo({
+      //   url: '/pages/login/login',
+      // })
+      // this.tips('未登录,请登陆后尝试！', '去登陆', true, '/pages/login/login')
+    } else {
+      // 从全局中取数据
+      wx.navigateTo({
+        url: '/pages/music/music',
+      })
+    }
   },
   phoneInput: function(e) {
     this.setData({
@@ -34,9 +40,45 @@ Page({
     })
   },
   //获取验证码
-  getVerify:function(){
-
-    console.log(this.data.phone)
+  getVerify:function(event){
+    const phone = this.data.phone;
+   
+    var that = this;
+    console.log(event)
+    if(phone){
+        $api.getVerify({phone:phone}).then((res)=>{
+          console.log(res)
+          if(res){
+            //如果发送成功进行倒计时
+            that.setTime()
+          }
+        })
+    }else{
+      wx.showToast({
+        title: '手机号不能为空',
+      })
+    }
+  },
+  //验证码倒计时实现
+  setTime:function() {
+      if (this.data.countdown == 0) {
+          this.setData({
+            countdown: 60,
+            btnValue: "发送验证码",
+            canClick: false
+          })
+          return;
+      } else {
+        let countdown = this.data.countdown -1;
+        this.setData({
+          countdown: countdown,
+          btnValue: countdown+'秒',
+          canClick: true
+        })
+      }
+      setTimeout(()=>{
+        this.setTime()
+      },1000)
   },
   //登录
   loginSubmit:function(data){
@@ -46,7 +88,6 @@ Page({
       phone:phone,
       captcha:verify
     }
-    /**发送验证码验证 */
 
     $api.getLogin(loginData).then((res)=>{
       console.log(res)

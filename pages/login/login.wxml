@@ -7,7 +7,7 @@
   <view class="form-login">
     <input class="weui-input" auto-focus bindinput="phoneInput" name="phone" placeholder="请输入手机号"/>
     <input class="verify-input" name="verify" placeholder="请输入验证码"/>
-    <button class="sendVerify" bind:tap="getVerify">发送验证码</button>
+    <button class="sendVerify"  disabled='{{canClick}}' bind:tap="getVerify">{{btnValue}}</button>
    
     <button class="loginIn"  formType="submit" >登录</button>
   </view>
