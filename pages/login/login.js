@@ -20,19 +20,55 @@ Page({
   onLoad: function (options) {
     this.verification()   //验证是否登陆
   },
-  verification(){
-    let login_token = wx.getStorageSync("login_token")
-    if (login_token == '') {
-      // wx.navigateTo({
-      //   url: '/pages/login/login',
-      // })
-      // this.tips('未登录,请登陆后尝试！', '去登陆', true, '/pages/login/login')
-    } else {
-      // 从全局中取数据
-      wx.navigateTo({
-        url: '/pages/music/music',
+    // 提醒
+    tips(content, confirmText, isShowCancel) {
+      wx.showModal({
+        content: content,
+        confirmText: confirmText,
+        cancelColor: '#DE655C',
+        confirmColor: '#DE655C',
+        showCancel: isShowCancel,
+        cancelText: '取消',
+        success(res) {
+          if (res.confirm) {
+            // console.log('用户点击确定')
+            wx.navigateTo({
+              url: '/pages/find/find'
+            })
+          } else if (res.cancel) {
+            // console.log('用户点击取消')
+          }
+        }
       })
-    }
+    },
+  verification(){
+     //获取登录状态
+     const that = this;
+     wx.request({
+      url: 'https://music.ming.net.cn/login/refresh',
+      success(res){
+        console.log(res)
+        if(res.data.code == 301){
+          that.tips('未登录,请登陆后尝试！', '去登陆', true, '/pages/login/login')
+        }else{
+          wx.navigateTo({
+            url: '/pages/music/music',
+          })
+        }
+      }
+    })
+    // let login_token = wx.getStorageSync("login_token")
+    // if (login_token == '') {
+    //   // wx.navigateTo({
+    //   //   url: '/pages/login/login',
+    //   // })
+    //   // this.tips('未登录,请登陆后尝试！', '去登陆', true, '/pages/login/login')
+    // } else {
+    //   // 从全局中取数据
+    //   wx.navigateTo({
+    //     url: '/pages/music/music',
+    //   })
+    // }
   },
   phoneInput: function(e) {
     this.setData({

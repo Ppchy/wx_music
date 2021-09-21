@@ -67,9 +67,15 @@ Page({
   playAll() {
     let playlist = this.data.playlist
     let musicId = playlist[0].id;
+  
     for (let i = 1; i < playlist.length; i++) {
-      app.globalData.waitForPlaying.push(playlist[i].id)
+      if(playlist[i].noCopyrightRcmd ==null){
+        console.log(playlist[i])
+        app.globalData.waitForPlaying.push(playlist[i].id)
+      }
+      
     }
+    console.log(app.globalData.waitForPlaying)
     // 跳转到播放页面
     wx.navigateTo({
       url: '/pages/play/play?mid='+musicId,

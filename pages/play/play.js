@@ -48,6 +48,7 @@ Page({
     // 通过musicId发起接口请求，请求歌曲详细信息
     //获取到歌曲音频，则显示出歌曲的名字，歌手的信息，即获取歌曲详情；如果失败，则播放出错。
     $api.getSongDetail({ ids: musicId }).then(res => {
+      console.log(res.data.songs)
       if (res.data.songs.length === 0) {
         that.tips('服务器正忙~~', '确定', false)
       } else {   //获取成功
