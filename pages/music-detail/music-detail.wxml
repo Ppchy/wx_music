@@ -2,34 +2,33 @@
 <view class="wrapper">
 	<view class="main">
 		<view class="mine">
-			<image class="mine-pic" src="{{playlist.coverImgUrl}}" />
-			<text class="mine-name">{{playlist.name}}</text>
+			<image class="mine-pic" src="{{coverList.coverImgUrl}}" />
+			<text class="mine-name">{{coverList.name}}</text>
 		</view>
 	</view>
 	<view class="des">
 		<view class="my">
 			<text class="my-name">播放全部</text>
+			<image
+			 class="broadcast"
+			 src="../../image/search_openTap.png"
+			 bindtap="playAll"
+			/>
 		</view>
-		<scroll-view class="scroll" scroll-x>
-			<block wx:for="{{playlist.tracks}}" wx:key="index">
+		<scroll-view class="scroll" scroll-y>
+			<block wx:for="{{playlist}}" wx:key="index">
 				<view
-				 class="scroll-box"
-				 bindtap="gotoSongList"
+					class="all-container {{item.isActive?'active':''}}"
+				 bindtap="gotoSong"
 				 data-id="{{item.id}}"
+
 				>
-
-					<!-- <view>
-						<text class="scroll-box-top">{{item.mark}}</text>
-					</view> -->
-
-					<!-- <image class="scroll-box-pic" src="{{item.pict}}" /> -->
-
-					<view class="scroll-box-mid">
-						<text >{{item.name}}</text>
+					<text class="number">{{index+1}}</text>
+					<view class="author-container">
+						<text class="music-name">{{item.name}}</text>
+						<text class="singer">{{item.ar[0].name}}</text>
 					</view>
-					
-					
-
+					<image class="play" src="/image/search_nav-open.png"></image>
 				</view>
 			</block>
 		</scroll-view>

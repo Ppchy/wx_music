@@ -1,5 +1,6 @@
 // pages/music/music.js
 const $api = require('../../utils/api.js').API;
+const app = getApp();
 console.log($api)
 Page({
 
@@ -15,7 +16,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(111)
     let data = {type:7}
     $api.getNewMusic(data).then((res)=>{
       console.log(res)
@@ -25,7 +25,8 @@ Page({
         musicData:recommend.slice(0,6)
       })
     })
-    let like = {uid:1389758093}
+    let uid =  wx.getStorageSync("userId")
+    let like = {uid:uid }
     //获取喜欢的歌单
     $api.getLikeMusic(like).then((res)=>{
       console.log(res)

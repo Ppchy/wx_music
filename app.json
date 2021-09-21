@@ -4,14 +4,19 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/music/music",
-    "pages/music-detail/music-detail"
+    "pages/music-detail/music-detail",
+    "pages/play/play"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Asan",
+    "navigationBarTitleText": "Some Music",
     "navigationBarTextStyle": "black"
   },
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ],
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

@@ -42,10 +42,10 @@
   height:15rpx;
 }
 .sendVerify{
-  margin-left :20rpx !important;
+  margin-left :15rpx !important;
   width:160rpx !important;
-  height:70rpx;
-  line-height: 70rpx;
+  height:60rpx;
+  line-height: 60rpx;
   font-size: 22rpx;
   padding:0;
   color:#ccc

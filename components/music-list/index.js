@@ -20,7 +20,6 @@ Component({
    */
   methods: {
     goToDetail:function(event){
-      console.log(event)
       const id = event.currentTarget.dataset.id
       wx.navigateTo({
         url: '/pages/music-detail/music-detail?pid='+id,

@@ -40,7 +40,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.19.4",
-  "appid": "wx5758a191aca35265",
+  "appid": "wx10a8836f466f3d0e",
   "projectname": "music",
   "debugOptions": {
     "hidedInDevtools": []
@@ -51,6 +51,8 @@
     "servePath": ""
   },
   "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
   "condition": {
     "search": {
       "list": []

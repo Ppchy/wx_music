@@ -44,7 +44,6 @@ Page({
     const phone = this.data.phone;
    
     var that = this;
-    console.log(event)
     if(phone){
         $api.getVerify({phone:phone}).then((res)=>{
           console.log(res)
@@ -99,6 +98,10 @@ Page({
         this.saveUserLoginInfo(res.cookies)
           wx.navigateTo({
             url: '/pages/music/music',
+          })
+      }else if(res.code == 410){
+          wx.showToast({
+            title: '账号未注册',
           })
       }
     })

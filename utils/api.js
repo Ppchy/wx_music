@@ -3,7 +3,7 @@ const app = getApp();
 const GET = 'GET';
 const POST = 'POST';
 // 定义全局常量baseUrl用来存储前缀
-const baseURL = 'http://networkmusic.com:3000';
+const baseURL = 'https://music.ming.net.cn';
 
 function request(method, url, data) {
   return new Promise(function (resolve, reject) {
@@ -21,7 +21,7 @@ function request(method, url, data) {
         //判断状态码---errCode状态根据后端定义来判断
         if (res.data.code == 200) {  //请求成功
           resolve(res);
-        } else {
+        }else {
           //其他异常
           reject('运行时错误,请稍后再试');
         }
@@ -45,7 +45,13 @@ const API = {
   //登录
   getLogin:(data)=>request(GET,'/login/cellphone',data),
   //获取验证码登录
-  getVerify:(data)=>request(GET,'/captcha/sent',data)
+  getVerify:(data)=>request(GET,'/captcha/sent',data),
+  //获取歌曲详情
+  getSongDetail: (data) => request(GET, `/song/detail`, data),  
+  //获取歌曲路径
+  getSongUrl: (data) => request(GET, `/song/url`, data),  
+  //获取歌曲是否可用
+  getCheck: (data) => request(GET,'/check/music',data)
 };
 module.exports = {
   API: API
